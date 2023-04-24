@@ -32,6 +32,20 @@
     <pre><code>php artisan serve</code></pre>
     <li>Open your web browser and access the application at <code>http://localhost:8000</code>.</li>
 </ol>
+<h3>Registration</h3>
+<p>To register a new account, follow these steps:</p>
+<ol>
+    <li>Click on the "Register" link in the top right corner of the application.</li>
+    <li>Fill in the required information, including name, email, and password, in the registration form.</li>
+    <li>Click on the "Register" button to submit the form and create a new account.</li>
+</ol>
+<h3>Login</h3>
+<p>To login to an existing account, follow these steps:</p>
+<ol>
+    <li>Click on the "Login" link in the top right corner of the application.</li>
+    <li>Enter your email and password in the login form.</li>
+    <li>Click on the "Login" button to submit the form and log in to your account.</li>
+</ol>
 
 <h2>Usage</h2>
 <p>Once the application is up and running, you can start managing tasks using the following actions:</p>
