@@ -15,15 +15,15 @@ MySQL: A relational database management system used for storing task data.
 Axios: A popular HTTP client for making API requests from the Vue.js front-end to the Laravel back-end.
 
 INSTALATION
-Clone the repository to your local environment.
-Navigate to the project directory and run composer install to install Laravel dependencies.
-Copy the .env.example file to .env and configure your database settings (e.g., database name, username, and password).
-Run php artisan key:generate to generate an application key.
-Run php artisan migrate to create the necessary database tables.
-Run php artisan db:seed to seed the database with sample data (optional).
-Run npm install to install Vue.js dependencies.
-Run npm run dev to compile the Vue.js assets.
-Finally, run php artisan serve to start the development server.
+1.Clone the repository to your local environment.
+2.Navigate to the project directory and run composer install to install Laravel dependencies.
+3.Copy the .env.example file to .env and configure your database settings (e.g., database name, username, and password).
+4.Run php artisan key:generate to generate an application key.
+5.Run php artisan migrate to create the necessary database tables.
+6.Run php artisan db:seed to seed the database with sample data (optional).
+7.Run npm install to install Vue.js dependencies.
+8.Run npm run dev to compile the Vue.js assets.
+9.Finally, run php artisan serve to start the development server.
 
 API ENDPOINTS
 The following REST API endpoints are available in the Task Manager Application:
