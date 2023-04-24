@@ -1,62 +1,54 @@
-## Cloning the Project
+Task Manager Application
+The Task Manager Application is a web-based task management system that utilizes Laravel as the back-end framework for implementing CRUD (Create, Read, Update, Delete) REST APIs, and Vue.js for the front-end interface to consume these APIs. This application allows users to manage their tasks in a convenient and organized manner.
 
-Clone the project in the Code Tab of the respository
+FEATURES
+Create, read, update, and delete tasks.
+Set task due dates and priorities.
+Mark tasks as completed.
+Filter tasks by status, due date, and priority.
+Search tasks by title.
+User authentication and authorization.
+Technologies Used
+Laravel: A popular PHP web framework used for developing robust and scalable web applications.
+Vue.js: A JavaScript framework for building user interfaces.
+MySQL: A relational database management system used for storing task data.
+Axios: A popular HTTP client for making API requests from the Vue.js front-end to the Laravel back-end.
 
- > `git clone https://github.com/KWangechi/solutech_code_challenge.git`
- 
- ## Setting Up the Project
- 
- - After cloning the Project, update composer using the following command: but first make sure you have composer installed first
- 
->  `composer update`
- 
- - Remember to define your environmental variables by copying the `.env.example` file into your own `.env` file
- > `cp .env.example .env`
+INSTALATION
+Clone the repository to your local environment.
+Navigate to the project directory and run composer install to install Laravel dependencies.
+Copy the .env.example file to .env and configure your database settings (e.g., database name, username, and password).
+Run php artisan key:generate to generate an application key.
+Run php artisan migrate to create the necessary database tables.
+Run php artisan db:seed to seed the database with sample data (optional).
+Run npm install to install Vue.js dependencies.
+Run npm run dev to compile the Vue.js assets.
+Finally, run php artisan serve to start the development server.
 
- 
-- Next, install the npm packages since the project using Vue JS as the frontend framework
- 
-> `npm install`
- 
-- Seed the database and migrate the table
-> `php artisan migrate --seed`
+API ENDPOINTS
+The following REST API endpoints are available in the Task Manager Application:
 
-- Run the Laravel app
-> `php artisan serve`
+GET /api/tasks: Get all tasks.
+GET /api/tasks/{id}: Get a specific task by ID.
+POST /api/tasks: Create a new task.
+PUT /api/tasks/{id}: Update a task by ID.
+DELETE /api/tasks/{id}: Delete a task by ID.
+Front-end
+The front-end of the Task Manager Application is built using Vue.js and provides a user-friendly interface for managing tasks. Users can view tasks, create new tasks, update task details, mark tasks as completed, and delete tasks. The front-end interacts with the back-end Laravel APIs using Axios to perform CRUD operations.
 
-- Run the frontend(Vue)
-> `npm run dev`
+Authentication and Authorization
+The Task Manager Application implements user authentication and authorization using Laravel's built-in authentication system. Users can register an account, log in, and log out. Authenticated users can create, update, and delete their own tasks, while only administrators can perform these operations on any tasks.
 
-# Demo Example
-## Login
+Security
+The Task Manager Application takes security seriously and includes the following security measures:
 
-### Login![Login_Page](https://user-images.githubusercontent.com/54848316/233610074-0a715f77-9d11-47be-8b42-e13a9468bfa9.PNG)
-- One is redirected to this page since authentication is required
-
-### Login with errors![Login_Error](https://user-images.githubusercontent.com/54848316/233610202-86080b6b-dcb5-4dde-ad0d-4bee4054a556.PNG)
-- This is shown when there is a login error
-
-### Successful Login![DashBoard_After_Login](https://user-images.githubusercontent.com/54848316/233610800-514cabc2-c7b4-4a47-a8b3-7c01aa433b0f.PNG)
-- On successful login, the user is redirected to the dashboard page
-
-## Status CRUD
-![Status_Table](https://user-images.githubusercontent.com/54848316/233611040-94b41e55-6cbf-416d-9b83-533d4767510d.PNG)
-- Showing all the task status tables
-
-![Creating a New Status](https://user-images.githubusercontent.com/54848316/233611165-761ff6ea-08e4-4d35-b438-34a69e52149a.PNG)
-- Creating a new Task status using a modal
-
-![Edit_Status_Page](https://user-images.githubusercontent.com/54848316/233611543-b2a36918-baaa-4b9b-8e59-8d1c643ccd25.PNG)
-- Editing a Task Status
-
-![Succesful Updates](https://user-images.githubusercontent.com/54848316/233611619-368cf4fe-cc37-4e77-90be-3936bdb78156.PNG)
-- Succesful updates for the Task Status
-
-![Status_Deletion_Alert](https://user-images.githubusercontent.com/54848316/233611745-152e09a3-92e6-47ef-add3-90b62ace3f0f.PNG)
-- Confirmation of deleteing a task status
-
-![Successful_Status_Deletion](https://user-images.githubusercontent.com/54848316/233611945-5e6e7b7e-ac35-44f5-a643-e37af0e62f77.PNG)
-- When the task is deleted successfully
+Input validation to prevent SQL injection and cross-site scripting (XSS) attacks.
+CSRF protection using Laravel's built-in CSRF middleware.
+Authentication and authorization to restrict access to authorized users only.
+Password hashing using Laravel's bcrypt hashing algorithm.
+Secure communication over HTTPS.
+Conclusion
+The Task Manager Application is a full-fledged web-based task management system that provides CRUD operations through REST APIs built with Laravel, and a modern and interactive front-end interface using Vue.js. With its user-friendly features and security measures, it helps users to effectively manage their tasks in a seamless manner.
 
 
 
