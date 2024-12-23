@@ -5,6 +5,13 @@
   <li>Laravel code with controllers, models, migrations, and validation. </li>
   <li>Vue.js code for the frontend, including the form and Axios integration.</li>
 </ul>
+<h2>Screens</h2>
+<ul>
+    <li>Login </br>
+![image](https://github.com/user-attachments/assets/dfc808c3-7875-40e7-b529-13f37235ed22)
+</li>
+</ul>
+
 <h2>Features</h2>
 <ul>
     <li>Create tasks: Users can create new tasks by providing a title and description.</li>
