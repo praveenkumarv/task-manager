@@ -8,10 +8,14 @@
 <h2>Screens</h2>
 <ul>
     <li>Login </br>
-![image](https://github.com/user-attachments/assets/dfc808c3-7875-40e7-b529-13f37235ed22)
-
-    <img src="https://github.com/user-attachments/assets/dfc808c3-7875-40e7-b529-13f37235ed22" />
-</li>
+        ![image](https://github.com/user-attachments/assets/dfc808c3-7875-40e7-b529-13f37235ed22)
+    </li>
+    <li>Tasks</br>
+        ![image](https://github.com/user-attachments/assets/3c074f62-69c6-4373-901c-2fcf3abc83c6)
+    </li>
+    <li>Upcoming Tasks</br>
+        ![image](https://github.com/user-attachments/assets/ceea2e22-8592-4e83-9862-01b67406b441)
+    </li>
 </ul>
 
 <h2>Features</h2>
