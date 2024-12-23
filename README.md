@@ -23,7 +23,6 @@
     <li>PHP Version 8.2.18</li>
     <li>Vue Version: 3.2</li>
     <li>MySQL Version: 8.3</li>
-
     </ul>
 </ul>
 
