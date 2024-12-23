@@ -44,6 +44,20 @@
                                 />
                             </div>
 
+                            <!-- Priority -->
+                            <div class="form-group col-12 my-2 mt-3">
+                                <label for="priority" class="font-weight-bold">Priority:</label>
+                                <select
+                                id="priority"
+                                v-model="task.priority"
+                                class="form-control mt-3"
+                                >
+                                <option value="low">Low</option>
+                                <option value="medium">Medium</option>
+                                <option value="high">High</option>
+                                </select>
+                            </div>
+
                             <div class="form-group col-12 my-2 mt-3">
                                 <label for="email" class="font-weight-bold"
                                     >Due Date</label
@@ -112,7 +126,7 @@ import { useStatuses } from "../../store/status/index";
 import {useTasks} from '../../store/task/index'
 
 
-// const statusStore = useStatuses();
+const statusStore = useStatuses();
 const tasksStore = useTasks()
 
 export default {
@@ -133,6 +147,7 @@ export default {
 
     mounted() {
         this.getLoadedStatus();
+        this.getLoadedTask();
     },
     methods: {
         getLoadedStatus() {
@@ -141,8 +156,17 @@ export default {
             console.log(statusStore.getStatus);
             return statusStore.getStatus;
         },
+        getLoadedTask() {
+            this.task = tasksStore.getTask;
+
+            console.log(tasksStore.getTask);
+            return tasksStore.getTask;
+        },
         async updateStatus(updated_status) {
             await statusStore.updateStatus(updated_status);
+        },
+        async updateTask(updated_task) {
+            await tasksStore.updateTask(updated_task);
         },
     },
 };

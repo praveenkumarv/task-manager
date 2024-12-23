@@ -62,6 +62,25 @@ export const useUserTasks = defineStore("user-tasks-store", {
             }
         },
 
+        async editUserTask(user_task) {
+            
+            await axios.get("/sanctum/csrf-cookie");
+
+            const response = await axios.get(`/api/v1/user_tasks/${user_task.id}`, {});
+            if (response.data.status) {
+                this.user_task = response.data.data;
+
+                console.log("edit_data", this.user_task);
+                router.push(`/user_task/edit/${this.user_task.id}`);
+                //router.push({ path: '/tasks/edit', query: { id: [this.task.id] }})
+
+            } else {
+                toast.error(response.data.message);
+
+                this.errors = response.data.message;
+            }
+        },
+
         async deleteUserTask(id) {
             await axios.get("/sanctum/csrf-cookie");
 

@@ -25,7 +25,7 @@
       </div>
       <div class="card" style="width: 100%" v-else>
         <div class="card-title text-center">
-          <h1 class="mt-4">Tasks</h1>
+          <h1 class="mt-4">Upcoming Tasks</h1>
         </div>
         <div class="card-body">
           <div class="tables mt-8">
@@ -227,12 +227,12 @@ export default {
             statuses: 'statuses'
         }),
         ...mapState(useTasks, {
-            tasks: 'allTasks'
+            tasks: 'upcomingTasks'
         })
     },
 
     mounted() {
-       this.getAllTasks();
+       this.getAllUpcoming();
     },
     methods: {
         ...mapActions(useStatuses, {
@@ -240,7 +240,7 @@ export default {
         }),
 
         ...mapActions(useTasks, {
-            getAllTasks: 'fetchAllTasks'
+          getAllUpcoming: 'fetchAllUpcoming'
         }),
 
         async createNewTask() {

@@ -45,14 +45,19 @@ Route::prefix('v1')->group(function () {
         // Route::apiResource('/v1/status', TaskController::class);
         Route::get('tasks', [TaskController::class, 'index']);
         Route::post('tasks', [TaskController::class, 'store']);
+        Route::get('tasks/upcoming', [TaskController::class, 'upcoming']);
+        Route::get('tasks/{id}', [TaskController::class, 'edit']);
         Route::patch('tasks/{id}', [TaskController::class, 'update']);
         Route::delete('tasks/{id}', [TaskController::class, 'destroy']);
+        
+
 
 
         // User Tasks CRUD
         // Route::apiResource('/v1/status', UserTaskController::class);
         Route::get('user_tasks', [UserTaskController::class, 'index']);
         Route::post('user_tasks', [UserTaskController::class, 'store']);
+        Route::get('user_tasks/{id}', [UserTaskController::class, 'edit']);
         Route::patch('user_tasks/{id}', [UserTaskController::class, 'update']);
         Route::delete('user_tasks/{id}', [UserTaskController::class, 'destroy']);
     });

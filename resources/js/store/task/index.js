@@ -10,6 +10,7 @@ export const useTasks = defineStore("tasks-store", {
         return {
             tasks: [],
             task: "",
+            upcomingTasks: [],
             errors: "",
         };
     },
@@ -17,6 +18,10 @@ export const useTasks = defineStore("tasks-store", {
     getters: {
         allTasks(state) {
             return state.tasks;
+        },
+        
+        getAllUpcoming(state) {
+            return state.upcomingTasks;
         },
 
         getErrors(state) {
@@ -31,11 +36,26 @@ export const useTasks = defineStore("tasks-store", {
         async fetchAllTasks() {
             await axios.get("/sanctum/csrf-cookie");
             const response = await axios.get("/api/v1/tasks");
+            console.log(response);
             try {
                 this.tasks = response.data.data;
                 return this.tasks;
             } catch (err) {
                 this.tasks = [];
+                console.error("Error fetching tasks:", err);
+                return err;
+            }
+        },
+
+        async fetchAllUpcoming() {
+            await axios.get("/sanctum/csrf-cookie");
+            const response = await axios.get("/api/v1/tasks/upcoming");
+            console.log("upcoming",response);
+            try {
+                this.upcomingTasks = response.data.data;
+                return this.upcomingTasks;
+            } catch (err) {
+                this.upcomingTasks = [];
                 console.error("Error fetching tasks:", err);
                 return err;
             }
@@ -64,17 +84,18 @@ export const useTasks = defineStore("tasks-store", {
         },
 
         async editTask(task) {
+            
             await axios.get("/sanctum/csrf-cookie");
 
-            const response = await axios.get(`/api/v1/task/${task.id}`, {});
+            const response = await axios.get(`/api/v1/tasks/${task.id}`, {});
             if (response.data.status) {
                 this.task = response.data.data;
 
-                console.log(this.task);
-                router.push(`/task/edit/${this.task.id}`);
+                console.log("edit_data", this.task);
+                router.push(`/tasks/edit/${this.task.id}`);
+                //router.push({ path: '/tasks/edit', query: { id: [this.task.id] }})
 
             } else {
-                console.log(response.data.message);
                 toast.error(response.data.message);
 
                 this.errors = response.data.message;
@@ -82,14 +103,11 @@ export const useTasks = defineStore("tasks-store", {
         },
 
         async updateTask(task) {
+            console.log("update", task);
             await axios.get("/sanctum/csrf-cookie");
 
-            const response = await axios.patch(
-                `/api/v1/status/${task.id}`,
-                task,
-                {}
-            );
-
+            const response = await axios.patch(`/api/v1/tasks/${task.id}`,task,{});
+            console.log(response.data);
             if (!response.data.status) {
                 toast.error(response.data.message, {});
                 this.errors = response.data.message;

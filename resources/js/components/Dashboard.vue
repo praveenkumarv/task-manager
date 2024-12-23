@@ -40,6 +40,11 @@
               >
             </li>
             <li class="nav-item">
+              <router-link active-class="active-link" class="nav-link" :to="{ name: 'upcoming' }"
+                >Upcoming Tasks <span class="sr-only"></span
+              ></router-link>
+            </li>
+            <li class="nav-item">
               <router-link
                 :to="{ name: 'status' }"
                 active-class="active-link"
@@ -52,8 +57,6 @@
                 >User Tasks <span class="sr-only"></span
               ></router-link>
             </li>
-
-         
           </ul>
           <div class="d-flex">
             <ul class="navbar-nav">

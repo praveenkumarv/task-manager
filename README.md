@@ -1,18 +1,30 @@
 <h1>Task Manager Application</h1>
     <p>The Task Manager Application is a web-based task management system that utilizes Laravel as the back-end framework for implementing CRUD (Create, Read, Update, Delete) REST APIs, and Vue.js for the front-end interface to consume these APIs. This application allows users to manage their tasks in a convenient and organized manner.</p>
+<h2>App Contains</h2>
+<ul>
+  <li>Laravel code with controllers, models, migrations, and validation. </li>
+  <li>Vue.js code for the frontend, including the form and Axios integration.</li>
+</ul>
 <h2>Features</h2>
 <ul>
     <li>Create tasks: Users can create new tasks by providing a title and description.</li>
     <li>Read tasks: Users can view their existing tasks along with their details, such as title, description, and status.</li>
     <li>Update tasks: Users can edit the title, description, and status of their tasks.</li>
     <li>Delete tasks: Users can delete tasks that are no longer needed.</li>
+    <li>Upcoming Tasks: It shows the tasks due in the next 7 days.</li>
 </ul>
 
 <h2>Technologies Used</h2>
 <ul>
-    
     <li>Laravel: Laravel is a PHP web application framework that provides a robust and scalable foundation for building web applications. It is used as the back-end framework in this application to implement REST APIs for task management.</li>
     <li>Vue.js: Vue.js is a JavaScript framework for building user interfaces. It is used as the front-end framework in this application to consume the REST APIs and provide a responsive and interactive user interface for managing tasks.</li>
+    <ul>
+    <li>Laravel version: Laravel Framework 10.48.25</li>
+    <li>PHP Version 8.2.18</li>
+    <li>Vue Version: 3.2</li>
+    <li>MySQL Version: 8.3</li>
+
+    </ul>
 </ul>
 
 <h2>Installation</h2>
@@ -22,13 +34,15 @@
     <li>Run the following command to install the Laravel dependencies:</li>
     <pre><code>composer install</code></pre>
     <li>Copy the .env.example file to .env and configure your database settings.</li>
+    <li>Change charset to <pre><code>'charset' => 'utf8', 'collation' => 'utf8_unicode_ci' </pre></code>in config/databse.php</li>
     <li>Run the following command to generate a key for your application:</li>
     <pre><code>php artisan key:generate</code></pre>
-    <li>Run the following command to migrate the database:</li>
+    <li>Run the following command to migrate the database: (An alert to create a database will appear in the cli.)</li>
     <pre><code>php artisan migrate</code></pre>
     <li>Run the following command to seed the database with sample data:</li>
     <pre><code>php artisan db:seed</code></pre>
     <li>Run the following command to start the Laravel development server:</li>
+    <pre><code>npm run dev</code></pre>
     <pre><code>php artisan serve</code></pre>
     <li>Open your web browser and access the application at <code>http://localhost:8000</code>.</li>
 </ol>
@@ -53,4 +67,5 @@
     <li>Create a task: Click on the "Create Task" button and fill in the required details in the modal that appears. Click "Save" to create a new task.</li>
     <li>View tasks: All the tasks that you have created will be listed on the main page. You can view the details of a task by clicking on its title.</li>
     <li>Edit a task: To edit a task, click on the "Edit" button next to the task you want to modify. Update the details in the modal that appears and click "Save" to save the changes.</li>
-    <li>Delete a task: To delete a task, click on the "Delete" button next to the task you
+    <li>Delete a task: To delete a task, click on the "Delete" button next to the task you</li>
+    <li>Upcoming Tasks: It shows the tasks due in the next 7 days.</li>

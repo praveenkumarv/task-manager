@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Task;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Carbon\Carbon;
 
 
 class TaskController extends Controller
@@ -15,7 +16,10 @@ class TaskController extends Controller
      */
     public function index()
     {
+        //$tasks = Task::with('status')->get();
         $tasks = Task::all();
+        
+        //$tasks['due_date'] = Carbon::createFromFormat('Y-m-d', $tasks['due_date'])->format('d/m/Y');
 
         if (!$tasks) {
             return response()->json([
@@ -50,6 +54,7 @@ class TaskController extends Controller
             $request->validate([
                 'name' => 'required',
                 'description' => 'required',
+                'priority' => 'required',
                 'due_date' => 'required|date',
                 'status_id' => 'required'
             ]);
@@ -57,6 +62,7 @@ class TaskController extends Controller
             $task = Task::create([
                 'name' => $request->name,
                 'description' => $request->description,
+                'priority' => $request->priority,
                 'due_date' => $request->due_date,
                 'status_id' => $request->status_id
             ]);
@@ -111,9 +117,40 @@ class TaskController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
+    // public function edit(string $id)
+    // {
+    //     $task = Task::find($id);
+        
+    //     return response()->json([
+    //         'status' => true,
+    //         'message' => 'Task fetched successfully!',
+    //         'status_code' => Response::HTTP_FOUND,
+    //         'data' => $task
+    //     ]);
+    // }
+
     public function edit(string $id)
     {
-        //
+
+        try {
+            $task = Task::find($id);
+            //$task['due_date'] = Carbon::createFromFormat('Y-m-d', $task['due_date'])->format('d/m/Y');
+           // $task->due_date = Carbon::parse($task->due_date)->format('d-m-y');;
+            
+            return response()->json([
+                'status' => true,
+                'message' => 'Edit: Task fetched successfully!',
+                'status_code' => Response::HTTP_FOUND,
+                'data' => $task
+            ]);
+        } catch (\Throwable $th) {
+            return response()->json([
+                'status' => false,
+                'message' => $th->getMessage(),
+                'status_code' => Response::HTTP_NOT_FOUND,
+                'data' => $task
+            ]);
+        }
     }
 
     /**
@@ -176,5 +213,28 @@ class TaskController extends Controller
                 'status_code' => Response::HTTP_INTERNAL_SERVER_ERROR
             ]);
         }
+    }
+
+    /**
+     * Get tasks due in the next 7 days.
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function upcoming()
+    {
+        $today = Carbon::today();
+        $nextWeek = $today->copy()->addDays(7);
+
+    //    $tasks = Task::whereBetween('due_date', [$today, $nextWeek])->get();
+       $tasks = Task::whereBetween('due_date', [$today, $nextWeek])
+             ->orderBy('due_date', 'asc')
+             ->get();
+
+        return response()->json([
+            'status' => true,
+            'message' => 'All Upcoming Tasks fetched successfully!',
+            'data' => $tasks,
+            'status_code' => Response::HTTP_OK
+        ]);
     }
 }

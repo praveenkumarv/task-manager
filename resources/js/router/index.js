@@ -15,6 +15,7 @@ const StatusEdit = () => import("../components/status/Edit.vue")
 const Task = () => import("../components/tasks/Index.vue");
 const UserTask = () => import("../components/userTasks/Index.vue");
 const TaskEdit = () => import("../components/tasks/Edit.vue")
+const Upcoming = () => import("../components/tasks/Upcoming.vue")
 
 
 
@@ -93,8 +94,17 @@ const routes = [
                 },
             },
             {
+                name: "upcoming",
+                path: "/tasks/upcoming",
+                component: Upcoming,
+                children: [],
+                meta: {
+                    title: `Upcoming Tasks`,
+                },
+            },
+            {
                 name: "tasks_edit",
-                path: "/task/edit/:id",
+                path: "/tasks/edit/:id",
                 component: TaskEdit
             },
             {

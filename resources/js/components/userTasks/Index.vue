@@ -84,8 +84,8 @@
                                         <button
                                             class="btn btn-secondary btn-sm"
                                             type="button"
-                                            data-bs-target="#createStatusModal"
-                                            data-bs-toggle="modal"
+                                            
+                                            @click.prevent="editUserTask(userTask)"
                                         >
                                             EDIT
                                         </button>
@@ -95,7 +95,7 @@
                                             <button
                                                 class="btn btn-danger btn-sm"
                                                 type="button"
-                                                @click="deleteTask(task.id)"
+                                                @click="deleteTask(userTask.id)"
                                             >
                                                 DELETE
                                             </button>
@@ -332,6 +332,9 @@ export default {
         async deleteUserTask(id) {
             await userTasksStore.deleteUserTask(id);
 
+        },
+        async editUserTask(userTask) {
+            await userTasksStore.editUserTask(userTask);
         },
 
     },

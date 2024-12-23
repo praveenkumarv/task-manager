@@ -13,6 +13,11 @@ class Status extends Model
 
     protected $fillable = ['name'];
 
+    protected $casts = [
+        'created_at' => 'datetime:Y-m-d', // Automatically formats during serialization
+        'updated_at' => 'datetime:Y-m-d', // Automatically formats during serialization
+    ];
+
     public function tasks() {
         return $this->belongsToMany(Task::class);
     }

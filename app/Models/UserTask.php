@@ -17,10 +17,11 @@ class UserTask extends Model
     ];
 
     protected $casts = [
-        'due_date' => 'datetime',
-        'start_time' => 'datetime',
-        'end_time' => 'datetime',
+        'due_date' => 'datetime:d-m-Y H:i:s',
+        'start_time' => 'datetime:d-m-Y H:i:s',
+        'end_time' => 'datetime:d-m-Y H:i:s',
     ];
+
 
     // relationships
 

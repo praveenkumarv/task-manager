@@ -31,6 +31,7 @@ export const useStatuses = defineStore("status-store", {
         async fetchAllStatuses() {
             await axios.get("/sanctum/csrf-cookie");
             const response = await axios.get("/api/v1/status");
+
             try {
                 this.statuses = response.data.data;
                 return this.statuses;
